@@ -60,7 +60,7 @@
                 @enderror
                 <img src="/image/{{ $contact->logo }}" alt="" class="img-fluid">
                 <div class="form-group">
-                    <label for="">Gambar</label>
+                    <label for="">Gambar1</label>
                     <input type="file" class="form-control" name="logo">
                 </div>
                 @error('image')
