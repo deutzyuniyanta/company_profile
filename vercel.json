@@ -12,6 +12,10 @@
             "dest": "/public/css/"
         },
         {
+            "src": "/views/(.*)",
+            "dest": "/public/views/"
+        },
+        {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
