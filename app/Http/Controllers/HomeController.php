@@ -23,14 +23,15 @@ class HomeController extends Controller
         $clients = Client::all();
         $contact = Contact::first();
 
-        return view('home.index', compact(
-            'sliders',
-            'about',
-            'services',
-            'portfolios',
-            'clients',
-            'contact',
-        ));
+        // return view('home.index', compact(
+        //     'sliders',
+        //     'about',
+        //     'services',
+        //     'portfolios',
+        //     'clients',
+        //     'contact',
+        // ));
+        return response()->json(['message'=>'OK']);
     }
 
     public function about()
