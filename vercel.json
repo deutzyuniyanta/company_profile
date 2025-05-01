@@ -1,0 +1,36 @@
+{
+    "version": 2,
+    "framework": null,
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.6.1"
+        }
+    },
+    "routes": [
+        {
+            "src": "/css/(.*)",
+            "dest": "/public/css/"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "APP_URL": "https://spk-bansos.vercel.app",
+        "APP_KEY": "base64:6wa9LCds5F08f3H2WGDnRYcJgpI9ANZm3L9EuXHSpRc=",
+        "CACHE_DRIVER": "array",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "cookie",
+        "DB_CONNECTION": "pgsql",
+        "DB_HOST": "aws-0-ap-southeast-1.pooler.supabase.com",
+        "DB_PORT": "6543",
+        "DB_DATABASE": "postgres",
+        "DB_USERNAME": "postgres",
+        "DB_PASSWORD": "NEW_PASSWORD_HERE",
+        "VIEW_COMPILED_PATH": "/tmp"
+    },
+    "outputDirectory": "public"
+}
