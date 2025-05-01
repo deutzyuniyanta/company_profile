@@ -6,6 +6,7 @@
             "runtime": "vercel-php@0.4.3"
         }
     },
+    "buildCommand": "composer install --no-dev --optimize-autoloader && php artisan config:cache && php artisan view:cache",
     "routes": [
         {
             "src": "/css/(.*)",
