@@ -31,6 +31,7 @@ class HomeController extends Controller
             'clients',
             'contact',
         ));
+        // return response()->json(['message'=>'OK']);
     }
 
     public function about()
