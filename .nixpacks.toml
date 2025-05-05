@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ['nodejs', 'postgresql', 'curl']  # contoh packages
+
+[phases.build]
+cmds = ['echo "Build step here"']
+
+[phases.start]
+cmd = "npm start" 
