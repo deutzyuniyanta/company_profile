@@ -38,7 +38,7 @@
             <a class="nav-link fw-bolder dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
               About
-            </a> 
+            </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="about">About Us</a></li>
               <li><a class="dropdown-item" href="team">Team</a></li>
@@ -84,7 +84,7 @@
         </div>
       </div>
       @endforeach
-      
+
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -125,7 +125,7 @@
               <i class="fa fa-check-double primary"></i>
               {{$about->kelebihan_2}}
             </li>
-           <li class="list-group-item">
+            <li class="list-group-item">
               <i class="fa fa-check-double primary"></i>
               {{$about->kelebihan_3}}
             </li>
@@ -161,17 +161,17 @@
             <div class="card-body">
               <div class="card-icon">
                 <img src="image/{{$service->image}}" alt="" class="img-fluid" width="80">
-              </div>
-              <div class="card-title fw-bolder mt-4">{{$service->title}}</div>
-              <p class="card-description mt-3">
-                {{$service->description}}
-              </p>
-            </div>
-          </div>
-        </div>
-        @endforeach
-      </div>
-    </div>
+  </div>
+  <div class="card-title fw-bolder mt-4">{{$service->title}}</div>
+  <p class="card-description mt-3">
+    {{$service->description}}
+  </p>
+  </div>
+  </div>
+  </div>
+  @endforeach
+  </div>
+  </div>
   </div> --}}
   <!-- end services -->
 
@@ -196,8 +196,21 @@
           <div class="mansory portfolio-container">
             <div class="mansory-sizer"></div>
             @foreach ($portfolios as $portfolio)
-            <div class="mansory-item m-2 portfolio-item filter-web">
-              <img src="image/{{$portfolio->image}}" alt="" class="img-fluid" />
+            @php
+            $ext = pathinfo($portfolio->image, PATHINFO_EXTENSION);
+            @endphp
+
+            <div class="mansory-item m-2 portfolio-item filter-web text-center">
+              @if (in_array(strtolower($ext), ['jpg', 'jpeg', 'png', 'gif', 'webp']))
+              <img src="/image/{{ $portfolio->image }}" alt="{{ $portfolio->title }}" class="img-fluid" />
+              @elseif (strtolower($ext) === 'pdf')
+              <div class="p-3 border rounded bg-light">
+                <p><strong>{{ $portfolio->title }}</strong></p>
+                <a href="/image/{{ $portfolio->image }}" target="_blank" class="btn btn-sm btn-primary">View PDF</a>
+              </div>
+              @else
+              <p>File tidak dikenali</p>
+              @endif
             </div>
             @endforeach
           </div>
@@ -216,7 +229,7 @@
       <div class="row mt-5">
         @foreach($clients as $client)
         <div class="col pt-6 d-flex justify-content-center align-items-center">
-          <img src="image/{{$client->image}}" class="img-fluid" alt=""  />
+          <img src="image/{{$client->image}}" class="img-fluid" alt="" />
         </div>
         @endforeach
       </div>
@@ -308,33 +321,33 @@
           <div class="col-md-1"></div>
           <div class="col-md-5">
             <div class="copyright">
-              &copy; Copyright <strong>PT. Mitra Pandanaran Mandiri</strong>. 
-            <div class="credits">
-              Terdaftar dan diawasi oleh OJK (Otoritas Jasa Keuangan)
+              &copy; Copyright <strong>PT. Mitra Pandanaran Mandiri</strong>.
+              <div class="credits">
+                Terdaftar dan diawasi oleh OJK (Otoritas Jasa Keuangan)
+              </div>
             </div>
-          </div>
-          <div class="col-md-5">
-            <div class="social-links float-end">
-              <a href="" class="mx-2">
-                <i class="fab fa-facebook fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
-                <i class="fab fa-twitter fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
-                <i class="fab fa-instagram fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
-                <i class="fab fa-youtube fa-2x"></i>
-              </a>
-              <a href="" class="mx-2">
-                <i class="fab fa-linkedin fa-2x"></i>
-              </a>
+            <div class="col-md-5">
+              <div class="social-links float-end">
+                <a href="" class="mx-2">
+                  <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                <a href="" class="mx-2">
+                  <i class="fab fa-twitter fa-2x"></i>
+                </a>
+                <a href="" class="mx-2">
+                  <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                <a href="" class="mx-2">
+                  <i class="fab fa-youtube fa-2x"></i>
+                </a>
+                <a href="" class="mx-2">
+                  <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </footer>
   <!-- end footer  -->
 
