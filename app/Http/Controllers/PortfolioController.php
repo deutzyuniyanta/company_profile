@@ -38,7 +38,9 @@ class PortfolioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required', 'description' => 'required', 'image' => 'required|image',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'nullable|mimes:jpg,jpeg,png,gif,webp,pdf',
         ]);
 
         $input = $request->all();
@@ -87,7 +89,9 @@ class PortfolioController extends Controller
     public function update(Request $request, Portfolio $portfolio)
     {
         $request->validate([
-            'title' => 'required', 'description' => 'required', 'image' => 'image',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image',
         ]);
 
         $input = $request->all();
@@ -97,7 +101,7 @@ class PortfolioController extends Controller
             $imageName = $image->getClientOriginalName();
             $image->move($destinationPath, $imageName);
             $input['image'] = $imageName;
-        }else {
+        } else {
             unset($input['image']);
         }
 
